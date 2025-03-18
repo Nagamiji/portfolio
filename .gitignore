@@ -24,5 +24,9 @@ dist-ssr
 *.sw?
 
 
+<<<<<<< HEAD
 .env
 .vercel
+=======
+.env
+>>>>>>> f3ade15 (Resolve dependency conflicts and build project)
