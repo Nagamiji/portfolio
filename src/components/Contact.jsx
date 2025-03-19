@@ -39,7 +39,9 @@ const Contact = () => {
               <h4 className="fw-bold text-secondary">📬 Send a Message</h4>
 
               {sent ? (
-                <p className="text-success fw-bold text-center">✅ Your message has been sent successfully!</p>
+                <p className="text-success fw-bold text-center">
+                  ✅ Your message has been sent successfully!
+                </p>
               ) : (
                 <form onSubmit={sendEmail}>
                   {/* Name Input */}

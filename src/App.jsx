@@ -1,5 +1,6 @@
 // src/App.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
@@ -11,8 +12,30 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  useEffect(() => {
+    const sections = document.querySelectorAll(".section");
+    const options = {
+      root: null,
+      threshold: 0.2, // Section appears when 20% is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+  }, []);
+
   return (
-    <>
+    // Wrap your App components inside BrowserRouter
+    <BrowserRouter>
       <Header />
       <main className="l-main">
         <Home />
@@ -24,7 +47,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

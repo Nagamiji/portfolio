@@ -1,75 +1,100 @@
-// src/components/WorkExperience.jsx
 import React from 'react';
+import { Container, Card, Button } from 'react-bootstrap';
+import '../assets/css/WorkExperience.css';
+
+import ministryLogo from '../assets/img/ministry.jpg';
+import saatLogo from '../assets/img/saat.jpg';
+import scholararLogo from '../assets/img/scholarar.jpg';
+import vilalabLogo from '../assets/img/vilalab.jpg';
+
+const experiences = [
+  {
+    title: 'Data Analyst – Spectrum Management & Frequency Department',
+    company: 'Ministry of Telecommunication and Post of Cambodia',
+    date: 'Aug 2024 – Sep 2024',
+    logo: ministryLogo,
+    bullets: [
+      'Built regression & ML models (Linear, Ridge, Lasso, Random Forest, SVR) to forecast spectrum pricing.',
+      'Performed data preprocessing, EDA, and feature engineering on large datasets.',
+      'Delivered policy‑grade insights that informed MoTP’s spectrum allocation strategy.',
+    ],
+    sideInfo: '📊 92% prediction accuracy, 🗂 Processed 100K+ records, 💼 Policy recommendation adopted',
+    certificate: '/assets/certificates/ministry.pdf',
+  },
+  {
+    title: 'Secretary Office Volunteer – Phnom Penh Saat Campaign',
+    company: 'Phnom Penh Saat',
+    date: 'Oct 2024 – Nov 2024',
+    logo: saatLogo,
+    bullets: [
+      'Managed official communications, scheduling, and digital outreach.',
+      'Ensured accurate documentation for all campaign activities.',
+    ],
+    sideInfo: '🗓 Coordinated 20+ meetings, ✉️ Processed 300+ correspondence',
+    certificate: '/assets/certificates/saat.jpg',
+  },
+  {
+    title: 'Data Science Intern – Scholarar',
+    company: 'Scholarar (Startup)',
+    date: 'Dec 2024 – Apr 2025',
+    logo: scholararLogo,
+    bullets: [
+      'Built an automated web‑scraping pipeline with Selenium & Playwright.',
+      'Developed a pgvector‑powered recommendation engine using OpenAI embeddings.',
+      'Optimized PostgreSQL indexing for 10× faster queries.',
+    ],
+    sideInfo: '🤖 Automated 500+ scrapes weekly, ⚡ Query latency reduced from 200ms to 20ms',
+  },
+  {
+    title: 'AI Researcher – Khmer Digit Recognition',
+    company: 'Institute of Technology of Cambodia',
+    date: 'Mar 2025 – Present',
+    logo: vilalabLogo,
+    bullets: [
+      'Leading deep‑learning research (LSTM, BLSTM, GRU) on Khmer handwritten digit recognition.',
+      'Designed a data‑collection pipeline for stroke coordinates.',
+      'Iterating model architectures & hyperparameters to maximize accuracy.',
+    ],
+    sideInfo: '📈 Current accuracy: 96%, 🧑‍🔬 Dataset size: 15K samples',
+  },
+];
 
 const WorkExperience = () => (
-  <section className="work-experience section" id="work_experience">
-    <h2 className="section-title fw-bold">Work Experience</h2>
-
-    <div className="work-container">
-      {/* Data Analyst Role */}
-      <div className="work-item">
-        <img src="src\assets\img\ministry.jpg" alt="Spectrum Management Logo" className="work-logo" />
-        <div className="work-details">
-          <h3>Data Analyst - Spectrum Management &amp; Frequency Department</h3>
-          <p><strong>Ministry of Telecommunication and Post of Cambodia</strong></p>
-          <p className="date">August 2024 - September 2024</p>
-          <ul>
-            <li>Worked on a <strong>spectrum price prediction</strong> project to analyze and forecast <strong>telecommunication spectrum pricing trends</strong>.</li>
-            <li>Performed <strong>data preprocessing and exploratory data analysis (EDA)</strong> on large-scale spectrum datasets.</li>
-            <li>Developed and tested multiple <strong>regression models</strong> including <strong>Linear Regression, Ridge, Lasso</strong>, and advanced machine learning models like <strong>Random Forest and Support Vector Regression (SVR)</strong>.</li>
-            <li>Analyzed <strong>spectrum allocation strategies</strong> and studied <strong>telecommunication regulations</strong> to understand pricing factors.</li>
-            <li>Generated <strong>data-driven insights</strong> to support policy decisions related to spectrum management.</li>
-          </ul>
-          <a href="assets/certificates/ministry.pdf" target="_blank" rel="noopener noreferrer" className="cert-link">View Certificate</a>
-        </div>
-      </div>
-      {/* Secretary Office Volunteer */}
-      <div className="work-item">
-        <img src="src\assets\img\saat.jpg" alt="Phnom Penh Saat Logo" className="work-logo" />
-        <div className="work-details">
-          <h3>Secretary Office Volunteer – Phnom Penh Saat Campaign</h3>
-          <p className="date">October 2024 – November 2024</p>
-          <ul>
-            <li>Provided <strong>administrative support</strong> for the Phnom Penh Saat campaign, assisting in scheduling, documentation, and record-keeping.</li>
-            <li>Managed <strong>official communications</strong> and coordinated meetings to ensure smooth campaign operations.</li>
-            <li>Assisted in <strong>organizing digital outreach efforts</strong>, including social media posts and campaign reports.</li>
-            <li>Ensured proper documentation and data organization for future campaign reference.</li>
-          </ul>
-          <a href="assets/certificates/saat.jpg" target="_blank" rel="noopener noreferrer" className="cert-link">View Certificate</a>
-        </div>
-      </div>
-      {/* Data Science Intern */}
-      <div className="work-item">
-        <img src="src\assets\img\scholarar.jpg" alt="Scholarar Logo" className="work-logo" />
-        <div className="work-details">
-          <h3>Data Science Intern - Scholarar (Startup Company)</h3>
-          <p className="date">December 2024 – April 2025</p>
-          <ul>
-            <li>Designed and implemented an <strong>automated web scraping pipeline</strong> using <strong>Selenium, Playwright, and WebDriver</strong> to extract scholarship data.</li>
-            <li>Developed a <strong>scholarship recommendation system</strong> using <strong>Python (Flask), PostgreSQL, and pgvector</strong>, integrating advanced filtering methods.</li>
-            <li>Implemented <strong>vector-based search algorithms</strong> with <strong>Zilliz and OpenAI embeddings</strong> to enhance recommendation accuracy.</li>
-            <li>Performed <strong>database optimization and indexing strategies</strong> to improve query efficiency and system scalability.</li>
-            <li>Collaborated with a cross-functional team to ensure seamless deployment and integration of machine learning models.</li>
-          </ul>
-        </div>
-      </div>
-      {/* AI Researcher Role */}
-      <div className="work-item">
-        <img src="src\assets\img\vilalab.jpg" alt="Vilalab Logo" className="work-logo" />
-        <div className="work-details">
-          <h3>AI Researcher - Khmer Digit Written Recognition</h3>
-          <p><strong>Institute of Technology of Cambodia (ITC)</strong></p>
-          <p className="date">March 2025 – Present</p>
-          <ul>
-            <li>Conducting research on <strong>Khmer handwritten digit recognition</strong> using <strong>deep learning</strong> techniques.</li>
-            <li>Leading data collection efforts by acquiring <strong>stroke coordinate data</strong> from students to build a robust dataset.</li>
-            <li>Developing and evaluating <strong>LSTM, BLSTM, GRU, and Hybrid deep learning models</strong> to optimize recognition accuracy.</li>
-            <li>Implementing <strong>data preprocessing, feature extraction, and model tuning</strong> to enhance performance.</li>
-            <li>Exploring various architectures and hyperparameter tuning strategies to improve model generalization.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <section id="work-experience" className="work-experience py-5">
+    <Container>
+      <h2 className="section-title text-center mb-5">Work Experience</h2>
+      {experiences.map((exp, idx) => (
+        <Card key={idx} className="work-item mb-4 animate-fadein">
+          <div className="d-flex align-items-center flex-wrap p-4">
+            <img
+              src={exp.logo}
+              alt={`${exp.company} logo`}
+              className="work-logo img-fluid rounded mb-3 mb-md-0"
+            />
+            <div className="work-details ms-md-4 flex-grow-1">
+              <Card.Title className="h4">{exp.title}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{exp.company}</Card.Subtitle>
+              <Card.Text className="date">{exp.date}</Card.Text>
+              <ul>
+                {exp.bullets.map((bullet, i) => (
+                  <li key={i}>{bullet}</li>
+                ))}
+              </ul>
+              {exp.sideInfo && (
+                <p className="side-info">
+                  <strong>Highlights:</strong> {exp.sideInfo}
+                </p>
+              )}
+              {exp.certificate && (
+                <a href={exp.certificate} target="_blank" rel="noopener noreferrer">
+                  <Button variant="link" className="text-primary">View Certificate</Button>
+                </a>
+              )}
+            </div>
+          </div>
+        </Card>
+      ))}
+    </Container>
   </section>
 );
 

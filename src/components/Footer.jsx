@@ -1,15 +1,32 @@
-// src/components/Footer.jsx
 import React from 'react';
+import { Link } from "react-router-dom"; // If using React Router
 
 const Footer = () => (
   <footer className="footer">
-    <p className="footer__title">Kana</p>
-    <div className="footer__social">
-      <a href="#" className="footer__icon"><i className="bx bxl-facebook"></i></a>
-      <a href="#" className="footer__icon"><i className="bx bxl-instagram"></i></a>
-      <a href="#" className="footer__icon"><i className="bx bxl-twitter"></i></a>
+    <div className="footer__container">
+      {/* Left Section: Branding */}
+      <div className="footer__brand">
+        <h3 className="footer__title">Kana</h3>
+        <p className="footer__tagline">Bridging AI & Innovation</p>
+      </div>
+
+      {/* Center Section: Quick Links */}
+      <div className="footer__links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/work-experience">Work Experience</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+        </ul>
+      </div>
+
+      {/* Right Section: Copyright & Additional Info */}
+      <div className="footer__copy">
+        <p>&#169; {new Date().getFullYear()} Kana. All rights reserved.</p>
+        <small><Link to="/privacy-policy">Privacy Policy</Link> | <Link to="/terms">Terms of Service</Link></small>
+      </div>
     </div>
-    <p className="footer__copy">&#169; Bedimcode. All rigths reserved</p>
   </footer>
 );
 

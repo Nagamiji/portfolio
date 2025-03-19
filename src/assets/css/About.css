@@ -1,0 +1,120 @@
+
+
+
+
+/* ===== ABOUT SECTION ===== */
+
+ /* ===== ROBOT ANIMATION ===== */
+ .robot-container {
+    position: absolute;
+    top: 5px; /* Adjust so it appears correctly */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translateX(5px);
+}
+
+.animated-robot {
+    width: 120px; /* Corrected size */
+    height: 120px;
+    animation: walkToCenter 8s linear infinite;
+}
+
+/* Keyframes: Walk, Stop, Sit */
+@keyframes walkToCenter {
+    0% { transform: translateX(40vw); opacity: 1; }  /* Start slightly further right */
+    30% { transform: translateX(15vw); opacity: 1; }   /* Walk a bit slower at start */
+    50% { transform: translateX(30vw); opacity: 1; }   /* Walk to center */
+    70% { transform: translateX(40vw) scale(1); }      /* Pause before sitting */
+    80% { transform: translateX(20vw) scale(0.9); }    /* Slight sit movement */
+    100% { transform: translateX(30vw) scale(1); opacity: 1; } /* Stay in place */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container */
+.about { background-color: #f8f9faf3; }
+.section-title { font-size: 2.5rem; }
+
+/* Profile */
+.about__img-container {
+  display: inline-block;
+  position: relative;
+}
+.about__img {
+  width: 180px;
+  height: 180px;
+  border: 5px solid var(--first-color);
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+/* Background glow */
+.about__img-container::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(0,123,255,0.2), transparent);
+  z-index: -1;
+}
+
+
+
+/* Pull the About section up by 4rem (same amount as its padding) */
+#about {
+    margin-top: -2rem;
+  }
+  
+  /* If you want it completely flush (no extra whitespace) */
+  .about {
+    padding-top: 0;
+  }
+
+  
+
+/* Headings & text */
+.about__subtitle { font-size: 1.75rem; font-weight: 600; }
+.about__text { line-height: 1.65; color: #555; margin-bottom: 1rem; }
+
+/* Cards */
+.about__story, .about__skills-list {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+}
+.about__skills-list ul { list-style: disc inside; }
+
+/* Animation placeholder */
+.animation-placeholder {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  background: #e9ecef;
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about__img { width: 140px; height: 140px; }
+  .section-title { font-size: 2rem; }
+  .about__subtitle { font-size: 1.5rem; }
+}

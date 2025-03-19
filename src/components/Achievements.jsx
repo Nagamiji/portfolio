@@ -1,5 +1,5 @@
 // src/components/Achievements.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel, Nav, ProgressBar } from "react-bootstrap";
@@ -75,26 +75,34 @@ const Achievements = () => {
       ? achievementsData
       : achievementsData.filter((item) => item.category === selectedTab);
 
-  // Update Progress Bar Based on Month
-  const progressValues = [0, 33, 66, 100]; // Values for each month position
-  const progressLabels = ["August", "October", "November", "December"];
+  // Reset carousel index when selectedTab changes
+  useEffect(() => {
+    setIndex(0);
+  }, [selectedTab]);
+
+  // Dynamic progress bar calculation
+  const totalItems = filteredAchievements.length;
+  const progressPercent = totalItems > 1 ? (index / (totalItems - 1)) * 100 : 0;
+  const progressLabels = filteredAchievements.map((a) => a.date);
 
   return (
     <section className="bg-light py-5">
       <div className="container">
         <h2 className="fw-bold text-dark mb-4 text-center">My Achievements</h2>
 
-        {/* Progress Bar (Timeline from August to December) */}
-        <div className="mb-4">
-          <ProgressBar now={progressValues[index]} variant="primary" animated />
-          <div className="d-flex justify-content-between mt-2">
-            {progressLabels.map((label, i) => (
-              <span key={i} className={i === index ? "fw-bold text-primary" : "text-muted"}>
-                {label}
-              </span>
-            ))}
+        {/* Dynamic Progress Bar */}
+        {totalItems > 0 && (
+          <div className="mb-4">
+            <ProgressBar now={progressPercent} variant="primary" animated />
+            <div className="d-flex justify-content-between mt-2">
+              {progressLabels.map((label, i) => (
+                <span key={i} className={i === index ? "fw-bold text-primary" : "text-muted"}>
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Tabs for categories */}
         <Nav variant="pills" className="justify-content-center mb-4">
@@ -122,7 +130,7 @@ const Achievements = () => {
 
         <div className="row align-items-center">
           {/* Left: Carousel */}
-          <div className="col-md-6">
+          <div className="col-md-6 mb-4 mb-md-0">
             <Carousel
               activeIndex={index}
               onSelect={(selectedIndex) => setIndex(selectedIndex)}
@@ -143,37 +151,72 @@ const Achievements = () => {
           <div className="col-md-6">
             <h3 className="text-primary fw-bold">🚀 My Achievement Journey</h3>
             <p className="text-muted">
-              Throughout my journey, I have actively participated in both <strong>startup competitions</strong> and <strong>innovation-driven projects</strong>, gaining valuable experience in problem-solving, teamwork, and leadership.
+              Throughout my journey, I have actively participated in both <strong>startup competitions</strong> and{" "}
+              <strong>innovation-driven projects</strong>, gaining valuable experience in problem-solving, teamwork,
+              and leadership.
             </p>
             <ul className="list-unstyled">
-              <li>✅ Contributed to multiple <strong>startup & innovation competitions</strong>, refining business models and prototyping solutions.</li>
-              <li>✅ Engaged in <strong>environmental impact programs</strong>, collaborating with <strong>students, private sectors, and public institutions</strong> to raise awareness about sustainability.</li>
-              <li>✅ Expanded my expertise in <strong>cybersecurity, AI, and sustainable development</strong>, applying these skills in real-world projects.</li>
-              <li>✅ Continuously learning and growing by attending <strong>hackathons, leadership programs, and tech conferences</strong>.</li>
+              <li>
+                ✅ Contributed to multiple <strong>startup & innovation competitions</strong>, refining business models
+                and prototyping solutions.
+              </li>
+              <li>
+                ✅ Engaged in <strong>environmental impact programs</strong>, collaborating with{" "}
+                <strong>students, private sectors, and public institutions</strong> to raise awareness about sustainability.
+              </li>
+              <li>
+                ✅ Expanded my expertise in <strong>cybersecurity, AI, and sustainable development</strong>, applying these
+                skills in real-world projects.
+              </li>
+              <li>
+                ✅ Continuously learning and growing by attending <strong>hackathons, leadership programs, and tech
+                conferences</strong>.
+              </li>
             </ul>
           </div>
-       </div>
+        </div>
       </div>
     </section>
   );
 };
 
-// **Achievement Card Component**
+// Achievement Card Component
 const AchievementCard = ({ achievement }) => (
-  <div className="card border-3 shadow-lg text-center mx-auto" style={{ width: "38rem", borderRadius: "15px" }}>
+  <div className="card shadow-lg text-center mx-auto" style={{ maxWidth: "38rem", borderRadius: "15px" }}>
     <div className="border border-4 border-primary rounded-3 p-3">
       <div className="position-relative">
-        <img src={achievement.image} alt={achievement.title} className="card-img-top rounded-top" style={{ height: "320px", objectFit: "cover" }} />
+        <img
+          src={achievement.image}
+          alt={achievement.title}
+          className="card-img-top rounded-top"
+          style={{ height: "320px", objectFit: "cover", width: "100%" }}
+        />
       </div>
       <div className="card-body">
         <h4 className="card-title fw-bold text-dark">{achievement.title}</h4>
         <p className="text-muted mb-2">{achievement.date}</p>
         <p className="card-text text-secondary">{achievement.description1}</p>
         <p className="card-text text-secondary">{achievement.description2}</p>
-        <p className="fw-medium text-dark small mt-3">📍 Location: <span className="fw-bold">{achievement.location}</span></p>
+        <p className="fw-medium text-dark small mt-3">
+          📍 Location: <span className="fw-bold">{achievement.location}</span>
+        </p>
       </div>
     </div>
   </div>
 );
+
+AchievementCard.propTypes = {
+  achievement: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    description1: PropTypes.string,
+    description2: PropTypes.string,
+    skills: PropTypes.arrayOf(PropTypes.string),
+    image: PropTypes.string,
+    location: PropTypes.string,
+    category: PropTypes.string,
+    monthIndex: PropTypes.number,
+  }).isRequired,
+};
 
 export default Achievements;

@@ -1,0 +1,67 @@
+.work-experience {
+    background-color: #f8f9fa;
+  }
+  
+  .section-title {
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  /* Ensure each card has the same fixed width and stays centered */
+  .work-item {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.3s ease-in-out;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  .work-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Adjusted logo size */
+  .work-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+  }
+  
+  .date {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #6c757d;
+  }
+  
+  .side-info {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #eef2f5;
+    border-left: 4px solid #007bff;
+    font-size: 0.9rem;
+    color: #495057;
+  }
+  
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fadein {
+    animation: fadein 0.6s ease forwards;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .work-details {
+      margin-left: 0;
+      text-align: center;
+    }
+    .work-logo {
+      margin: 0 auto;
+    }
+  }
+  
