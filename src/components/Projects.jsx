@@ -2,46 +2,53 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import project1 from "../assets/img/project1.jpg";
+import project2 from "../assets/img/project2.jpg";
+import project3 from "../assets/img/project3.jpg";
+import project4 from "../assets/img/project4.jpg";
+import project5 from "../assets/img/project5.png";
+import project6 from "../assets/img/project6.png";
+
 // Project Data Array
 const projectsData = [
   {
     title: "Diagnosis Disease & ML Recommendation",
-    image: "src/assets/img/project1.jpg",
+    image: project1, // Use imported project1 image
     link: "https://github.com/Nagamiji/Diagnosis-Disease/tree/main",
     description: "A Machine Learning model for diagnosing diseases and recommending treatments.",
     tech: ["Python", "Flask", "ML", "Scikit-Learn"]
   },
   {
     title: "Library Management System",
-    image: "src/assets/img/project2.jpg",
+    image: project2, // Use imported project2 image
     link: "https://github.com/Nagamiji/library_management_system/tree/main",
     description: "A Spring Boot-powered library management system for book tracking and user management.",
     tech: ["Java", "Spring Boot", "MySQL"]
   },
   {
     title: "Loan Eligibility Prediction",
-    image: "src/assets/img/project3.jpg",
+    image: project3, // Use imported project3 image
     link: "https://www.kaggle.com/code/tykana/loan-eligibility-prediction",
     description: "Binary classification model for predicting loan approval eligibility.",
     tech: ["Python", "Kaggle", "Logistic Regression"]
   },
   {
     title: "Customer Segmentation (KMeans)",
-    image: "src/assets/img/project4.jpg",
+    image: project4, // Use imported project4 image
     link: "https://www.kaggle.com/code/tykana/customer-segmentation",
     description: "Unsupervised ML model to segment customers based on purchasing behavior.",
     tech: ["Python", "KMeans", "Scikit-Learn"]
   },
   {
     title: "Image Segmentation (U-Net)",
-    image: "src/assets/img/project5.png",
+    image: project5, // Use imported project5 image
     link: "https://www.kaggle.com/code/tykana/image-segmatation",
     description: "A deep learning-based image segmentation project using U-Net.",
     tech: ["Python", "TensorFlow", "CNN"]
   },
   {
     title: "Data Engineer Project",
-    image: "src/assets/img/project6.png",
+    image: project6, // Use imported project6 image
     link: "https://github.com/Nagamiji/Data-Engineer-Project",
     description: "Data pipeline implementation for structured data processing.",
     tech: ["Airflow", "PostgreSQL", "BigQuery"]
