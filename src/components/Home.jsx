@@ -27,7 +27,7 @@ const Home = () => (
         <a href="#contact" className="button">📩 Contact</a>
         
         {/* Corrected CV Download Button */}
-        <a href="/files/TYKANA_CV.pdf" download className="button button--secondary ms-3">
+        <a href="/files/CV.pdf" download className="button button--secondary ms-3">
           <FaDownload /> Download CV
         </a>
       </div>
