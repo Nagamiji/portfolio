@@ -7,7 +7,7 @@ import project2 from "../assets/img/project2.jpg";
 import project3 from "../assets/img/project3.jpg";
 import project4 from "../assets/img/project4.jpg";
 import project5 from "../assets/img/project5.png";
-import project6 from "../assets/img/project6.png";
+import project6 from "../assets/img/project6.jpeg";
 
 // Project Data Array
 const projectsData = [
@@ -47,12 +47,13 @@ const projectsData = [
     tech: ["Python", "TensorFlow", "CNN"]
   },
   {
-    title: "Data Engineer Project",
-    image: project6, // Use imported project6 image
-    link: "https://github.com/Nagamiji/Data-Engineer-Project",
-    description: "Data pipeline implementation for structured data processing.",
-    tech: ["Airflow", "PostgreSQL", "BigQuery"]
+    title: "Ai Chat Bot Agent",
+    image: project6, // Make sure 'project6' is correctly imported above
+    link: "https://github.com/Nagamiji/AiAgentChatbot",
+    description: "Conversational AI chatbot using Flask and Ollama with RAG (Retrieval-Augmented Generation), PostgreSQL for embeddings, and MongoDB for logging.",
+    tech: ["Flask", "Python", "Ollama", "PostgreSQL", "MongoDB", "RAG", "LLM"]
   }
+  
 ];
 
 const Projects = () => (
